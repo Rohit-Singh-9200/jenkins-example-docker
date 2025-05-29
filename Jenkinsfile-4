@@ -11,5 +11,16 @@ pipeline {
           }
         }
       }
+    stage('Crete Container') {
+    steps{
+        script{
+          sh '''
+          echo 'Crete container using Docker Image'
+          docker run -d --name test-container rohit:rohit /bin/bash -c "echo 'Hello World'; sleep infinity"
+          '''
+          }
+        }
+      }
+
   }
 }
